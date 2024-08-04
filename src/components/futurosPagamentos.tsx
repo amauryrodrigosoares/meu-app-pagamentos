@@ -13,7 +13,7 @@ const FuturosPagamentos: React.FC = () => {
   useEffect(() => {
     fetch('/api/pagamentos/futuros')
       .then(res => res.json())
-      .then((data: PagamentoFuturo[]) => setFuturosPagamentos(data)) // Tipo dos dados explícito
+      .then((data: PagamentoFuturo[]) => setFuturosPagamentos(data))
       .catch(error => console.error('Erro ao buscar pagamentos futuros:', error));
   }, []);
 

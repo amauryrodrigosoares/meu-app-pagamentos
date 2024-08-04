@@ -1,10 +1,12 @@
 import React from 'react';
-import FuturosPagamentos from './components/futurosPagamentos';
+import FuturosPagamentos from '../components/futurosPagamentos';
+import NovoPagamentoForm from '../components/novoPagamentoForm';
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div style={{width: '80%', margin: 'auto', paddingTop: '80px'}}>
       <h1>Bem-vindo ao Gerenciador de Pagamentos</h1>
+      <NovoPagamentoForm />
       <FuturosPagamentos />
     </div>
   );
