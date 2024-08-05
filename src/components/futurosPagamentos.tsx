@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import TabelaPagamentos from './tabelaPagamentos';
 
 interface PagamentoFuturo {
   descricao: string;
@@ -10,23 +11,17 @@ interface PagamentoFuturo {
 const FuturosPagamentos: React.FC = () => {
   const [futurosPagamentos, setFuturosPagamentos] = useState<PagamentoFuturo[]>([]);
 
-  useEffect(() => {
-    fetch('/api/pagamentos/futuros')
-      .then(res => res.json())
-      .then((data: PagamentoFuturo[]) => setFuturosPagamentos(data))
-      .catch(error => console.error('Erro ao buscar pagamentos futuros:', error));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/api/pagamentos/futuros')
+  //     .then(res => res.json())
+  //     .then((data: PagamentoFuturo[]) => setFuturosPagamentos(data))
+  //     .catch(error => console.error('Erro ao buscar pagamentos futuros:', error));
+  // }, []);
 
   return (
     <div>
       <h1>Pagamentos Futuros</h1>
-      <ul>
-        {futurosPagamentos.map((pagamento, index) => (
-          <li key={index}>
-            {pagamento.descricao}: {pagamento.valor} - {new Date(pagamento.data).toLocaleDateString()}
-          </li>
-        ))}
-      </ul>
+      <TabelaPagamentos />
     </div>
   );
 }
